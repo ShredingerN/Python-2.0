@@ -12,10 +12,29 @@ if number < MIN_NUM or number > MAX_NUM:
 elif number == 0 or number == 1:
     print('Числа 0 и 1 не являются ни простыми, ни составными числами')
 else:
-    for i in range(divider, number + 1):
+    for i in range(divider, number):
         if number % i == 0:
             count += 1
-    if count > 1:
+            break
+    if count == 1:
         print("число составное ")
     else:
         print("число простое")
+
+MIN_NUM = 0
+MAX_NUM = 100000
+divider = 2
+number = int(input('Введите число: '))
+if number < MIN_NUM or number > MAX_NUM:
+    print('Число не соотвествует заданному диапазону!')
+elif number == 0 or number == 1:
+    print('Числа 0 и 1 не являются ни простыми, ни составными числами')
+else:
+    for i in range(divider, number):
+        if number % i == 0:
+            print("число составное ")
+            break
+    else:
+        print("число простое")
+
+
