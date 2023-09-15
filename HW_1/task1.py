@@ -8,6 +8,12 @@ try:
     c = int(input('Введите длину 3-й стороны треугольника: '))
     if a < b + c and b < a + c and c < a + b:
         print("Треугольник существует")
+        if a == b == c:
+            print("Треугольник равносторонний")
+        elif a == b or b == c or c == a:
+            print("Треугольник равнобедренный")
+        else:
+            print("Треугольник обычный")
     else:
         print("Треугольник не существует")
 except ValueError:
