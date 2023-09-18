@@ -12,7 +12,7 @@ try:
     fract1 = [int(x) for x in fraction_1.split("/")]
     fract2 = [int(x) for x in fraction_2.split("/")]
 
-    if fract1[1] <= 0 and fract1[1] <= 0:
+    if fract1[1] <= 0 or fract2[1] <= 0:
         print('Знаменатель не может быть отрицательным или равен 0!')
     else:
         def sum_fractions(f1, f2):
