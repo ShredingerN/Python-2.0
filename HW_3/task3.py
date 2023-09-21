@@ -34,7 +34,6 @@ def all_comb(things, capacity):
                     # print(variant)
                 all_combinations.append(variant)
                 # print(all_combinations)
-
     return all_combinations
 
 
