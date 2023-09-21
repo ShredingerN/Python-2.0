@@ -16,4 +16,4 @@ for el in a:
     count_el = a.count(el)
     if count_el > 1:
         res_set.add(el)
-print(res_set)
+print(list(res_set))
