@@ -27,10 +27,10 @@ while True:
         s *= BONUS
         count = 1
     if action == '1':
-        withdrow = int(input('введите сумму: '))
-        if withdrow % DIVIDER == 0:
+        deposit = int(input('введите сумму: '))
+        if deposit % DIVIDER == 0:
             count += 1
-            s += withdrow
+            s += deposit
     elif action == '2':
         withdrow = int(input('введите сумму: '))
         if withdrow % DIVIDER == 0:
