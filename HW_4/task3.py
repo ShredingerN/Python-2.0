@@ -12,7 +12,7 @@ def tax():
 
 
 def bonus():
-    global balance, count, DIVIDER, amount
+    global balance, count
     BONUS = 1.03
     OPERATIONS = 3
     if count % OPERATIONS == 0 and count != 0:
