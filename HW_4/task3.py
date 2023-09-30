@@ -52,20 +52,26 @@ def withdraw():
     return balance
 
 
+def bank():
+    global balance
+    while True:
+        action = input('Введите операцию 1 - пополнение, 2 - снятие, 3 - выйти: ')
+        balance = tax()
+        balance = bonus()
+        if action == '1':
+            balance = deposit()
+        elif action == '2':
+            balance = withdraw()
+        else:
+            break
+        print(f'Баланс счета: {balance}')
+        print(f'История пополнения: {log1}\nИстория снятия:{log2}')
+    return balance
+
+
 balance = 0
 count = 1
 log1 = []
 log2 = []
 
-while True:
-    action = input('Введите операцию 1 - пополнение, 2 - снятие, 3 - выйти: ')
-    result = tax()
-    result = bonus()
-    if action == '1':
-        result = deposit()
-    elif action == '2':
-        result = withdraw()
-    else:
-        break
-    print(f'Баланс счета: {result}')
-    print(f'История пополнения: {log1}\nИстория снятия:{log2}')
+bank()
