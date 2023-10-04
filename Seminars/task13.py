@@ -72,18 +72,29 @@
 # Вернуть словарь с именем в качестве ключа и суммой премии в качестве значения.
 # Сумма рассчитывается как ставка умноженная на процент премии
 
-# def my_f(names: list[str], salaries: list[int], bonuses: list[str]) -> dict[str, float | int]:
+def my_f(names: list[str], salaries: list[int], bonuses: list[str]) -> dict[str, float | int]:
+    result = {}
+    for name, salary, bonus in zip(names, salaries, bonuses):
+        result[name] = round((salary * (float(bonus[:-1]) / 100)), 2)
+    return result
+
+
+# {'Иван': 12500.0, 'Николай': 24480.0, 'Пётр': 14497.0, 'Харитон': 42729.99999999999}
+n = ["Иван", "Николай", "Пётр", "Харитон"]
+s = [125_000, 96_000, 109_000, 100_000]
+a = ['10%', '25.5%', '13.3%', '42.73%']
+print(my_f(n, s, a))
+# def my_f(names, salaries, bonuses):
 #     result = {}
 #     for name, salary, bonus in zip(names, salaries, bonuses):
 #         result[name] = salary * (float(bonus[:-1]) / 100)
 #     return result
 #
 #
-# n = ["Иван", "Николай", "Пётр", "Харитон"]
-# s = [125_000, 96_000, 109_000, 100_000]
-# a = ['10%', '25.5%', '13.3%', '42.73%']
-# print(my_f(n, s, a))
-
+# n = ["Alice", "Bob", "Charlie"]
+# s = [5000, 6000, 7000]
+# b = ["10%", "5%", "15%"]
+# print(my_f(n, s, b))
 
 # Функция получает на вход список чисел и два индекса. Вернуть сумму чисел между между переданными индексами.
 # Если индекс выходит за пределы списка, сумма считается до конца и/или начала списка. Если нижняя граница меньше нуля,
@@ -127,17 +138,17 @@
 # Напишите функцию, которая при запуске заменяет содержимое переменных оканчивающихся на s
 # (кроме переменной из одной буквы s) на None. Значения не удаляются, а помещаются в одноимённые переменные без s на конце.
 
-def change():
-    a = globals()
-    for key, value in a.items():
-        if key[-1] == 's':
-            a[key[:-1]] = value
-            a[key] = None
-
-
-cat = '1'
-cats = '2'
-dog = '3'
-dogs = '4'
-change()
-print(globals())
+# def change():
+#     a = globals()
+#     for key, value in a.items():
+#         if key[-1] == 's':
+#             a[key[:-1]] = value
+#             a[key] = None
+#
+#
+# cat = '1'
+# cats = '2'
+# dog = '3'
+# dogs = '4'
+# change()
+# print(globals())
