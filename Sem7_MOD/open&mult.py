@@ -5,8 +5,8 @@
 # В результирующем файле должно быть столько же строк, сколько в более длинном файле.
 # При достижении конца более короткого файла, возвращайтесь в его начало.
 
-from task15 import rnd_num
-from task16 import rnd_name_in_file
+from fieldfiles import rnd_num
+from pseudo import rnd_name_in_file
 
 
 def len_list(list1, list2):

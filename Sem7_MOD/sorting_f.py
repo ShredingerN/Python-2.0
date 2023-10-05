@@ -22,7 +22,7 @@ import pathlib
 #             file.replace(path / key / file.name)
 #
 #
-# sort_file1(pathlib.Path(r"C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Seminars\test"))
+# sort_file1(pathlib.Path(r"C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_sort_file")
 
 def sort_file(path):
     os.chdir(path)
@@ -37,4 +37,4 @@ def sort_file(path):
             os.replace(i, f'{key}\\{i}')
 
 
-sort_file(r"C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Seminars\test")
+sort_file(r"C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_sort_file")
