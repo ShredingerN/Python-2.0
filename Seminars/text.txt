@@ -1,0 +1,30 @@
+I have a macOS app with AppKit that when building on the latest Xcode, Xcode 15 and testing on
+macOS 14 many elements of the UI seem wrong.
+At first glance it seems as if they views stopped clipping to bounds when the used to do it, as in some cases
+I relied on this behaviour to show/hide buttons from a toolbar.Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
+Окончание файла
