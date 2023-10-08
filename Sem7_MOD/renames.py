@@ -8,54 +8,33 @@
 # Например для диапазона [3, 6] берутся буквы с 3 по 6 из исходного имени файла.
 # К ним прибавляется желаемое конечное имя, если оно передано. Далее счётчик файлов и расширение.
 
-import os
 from createfiles import create_files
-
 import os
 
 
-def rename_files(directory, desired_name, num_digits, source_extension, target_extension, name_range=None):
-    # Получаем список файлов в указанной директории
-    files = os.listdir(directory)
-
-    # Фильтруем файлы по расширению
-    files = [file for file in files if file.endswith(source_extension)]
-
-    # Определяем начальное значение счетчика
+def batch_rename(new_name, digits, source_ext, dest_ext, range_name, path='.'):
     counter = 1
+    for filename in os.listdir(path):
+        if filename.endswith(source_ext):
+            old_name = os.path.splitext(filename)[0]
+            if range_name:
+                old_name_substring = old_name[range_name[0]:range_name[1]]
+            else:
+                old_name_substring = ""
+            new_filename = f"{old_name_substring}{new_name}{str(counter).zfill(digits)}{dest_ext}"
+            os.rename(os.path.join(path, filename), os.path.join(path, new_filename))
+            counter += 1
 
-    # Перебираем файлы
+
+if __name__ == '__main__':
+    create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.txt', 4)
+    # create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.json', 2)
+    # create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.jpeg', 2)
+
+    # вывод на печать сгененрированных имен, для проверки, правильно ли выбираются нужные символы.
+    files = os.listdir(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename')
     for file in files:
-        # Определяем оригинальное имя файла в соответствии с диапазоном
-        original_name = file[name_range[0] - 1:name_range[1]]
+        print(file)
 
-        # Формируем новое имя файла
-        new_name = f"{desired_name}{original_name}_{counter:0{num_digits}d}.{target_extension}"
-
-        # Составляем полные пути к исходному и целевому файлам
-        source_path = os.path.join(directory, file)
-        target_path = os.path.join(directory, new_name)
-
-        # Переименовываем файл
-        os.rename(source_path, target_path)
-
-        # Увеличиваем счетчик
-        counter += 1
-
-
-# Пример использования
-
-desired_name = "new"
-num_digits = 4
-source_extension = ".txt"
-target_extension = "csv"
-name_range = (3, 6)
-
-
-
-create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.txt', 2)
-create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.json', 2)
-create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.jpeg', 2)
-
-rename_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', desired_name, num_digits, source_extension, target_extension, name_range)
-
+    batch_rename('NEW_', 3, '.txt', '.md', [0, 3],
+                 r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename')
