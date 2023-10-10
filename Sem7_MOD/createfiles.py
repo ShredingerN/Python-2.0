@@ -7,15 +7,18 @@
 # количество файлов, по умолчанию 42
 # Имя файла и его размер должны быть в рамках переданного диапазона.
 
-from task16 import rnd_name
+from pseudo import rnd_name
 from random import randint
+import os
 
 
-def create_files(extension, max_len_name=30, min_len_name=6, min_byte=256, max_byte=4096, qty_file=42):
+def create_files(directory, extension, qty_file=42, max_len_name=30, min_len_name=6, min_byte=256, max_byte=4096):
     for _ in range(qty_file):
-        with open(rnd_name() + extension, 'w') as f:
+        file_name = rnd_name() + extension
+        file_path = os.path.join(directory, file_name)
+        with open(file_path, 'w') as f:
             f.write(str(bytes([randint(0, 255) for _ in range(randint(min_byte, max_byte))])))
 
 
 if __name__ == '__main__':
-    create_files('.txt')
+    create_files(r'C:\Users\jo467\Downloads\Тестировщик\Python 2.0\Sem7_MOD\test_rename', '.txt', 5)
