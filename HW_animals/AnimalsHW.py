@@ -64,8 +64,7 @@ class Mammal(Animal):
 
 
 class AnimalFactory:
-    def __init__(self):
-        self.animal_dict = {'Bird': Bird, 'Fish': Fish, 'Mammal': Mammal}
+    animal_dict = {'Bird': Bird, 'Fish': Fish, 'Mammal': Mammal}
 
     def create_animal(self, type, name, *args):
         if type in self.animal_dict:

@@ -26,17 +26,17 @@ class Archive:
         self.number = number
 
     def __str__(self) -> str:
-        return f"now {self.text}, now {self.number}, arhiv_text {self.text_history}, arhiv_num {self.number_history}"
+        return f"now {self.text}, now {self.number}, arhiv_text {self.archive_text}, arhiv_num {self.archive_number}"
 
     def __repr__(self) -> str:
-        return f"Arhive({self.text}, {self.number})"
+        return f"Arсhive({self.text}, {self.number})"
 
 
 a = Archive('one', 5)
-print(a.text_history, a.number_history)
+print(a.archive_text, a.archive_number)
 b = Archive('two', 10)
-print(b.text_history, b.number_history)
-print(a.text_history, a.number_history)
+print(b.archive_text, b.archive_number)
+print(a.archive_text, a.archive_number)
 print(Archive.__doc__)
 print(repr(b))
 print(b)
