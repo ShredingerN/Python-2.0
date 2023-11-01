@@ -20,7 +20,19 @@ class Student:
         self.load_subjects(subjects_file)
 
     def __str__(self):
-        return f"Студент: {self.name}\nПредметы: {', '.join(self._subjects.keys())}"
+        subjects_with_data = [subject for subject, data in self._subjects.items() if
+                              data['grades'] or data['test_scores']]
+        return f"Студент: {self.name}\nПредметы: {', '.join(subjects_with_data)}"
+
+    # если предметы перечислены в строку через запятую
+    # def load_subjects(self, subjects_file):
+    #     with open(subjects_file, 'r', encoding='utf-8') as f:
+    #         line = f.readline().strip()  # Читаем первую строку и удаляем лишние пробелы
+    #         subjects = line.split(",")  # Разделяем предметы по запятой
+    #         for subject in subjects:
+    #             if subject not in self._subjects:
+    #                 self._subjects[subject] = {'grades': [], 'test_scores': []}
+    # предметы перечислены в столбец, метод проходит по линиям
 
     def load_subjects(self, subjects_file):
         with open(subjects_file, 'r', encoding='utf-8') as f:
@@ -32,14 +44,14 @@ class Student:
 
     def add_grade(self, subject, grade):
         if subject not in self._subjects:
-            self._subjects[subject] = {'grades': [], 'test_scores': []}
+            raise ValueError(f"Предмет {subject} не найден")
         if not isinstance(grade, int) or grade < 2 or grade > 5:
             raise ValueError("Оценка должна быть целым числом от 2 до 5")
         self._subjects[subject]['grades'].append(grade)
 
     def add_test_score(self, subject, test_score):
         if subject not in self._subjects:
-            self._subjects[subject] = {'grades': [], 'test_scores': []}
+            raise ValueError(f"Предмет {subject} не найден")
         if not isinstance(test_score, int) or test_score < 0 or test_score > 100:
             raise ValueError("Результат теста должен быть целым числом от 0 до 100")
         self._subjects[subject]['test_scores'].append(test_score)
@@ -71,6 +83,12 @@ student.add_test_score("Математика", 85)
 
 student.add_grade("История", 5)
 student.add_test_score("История", 92)
+
+student.add_grade("Литература", 5)
+student.add_test_score("Литература", 92)
+
+# student.add_grade("Химия", 5)
+# student.add_test_score("Химия", 92)
 
 average_grade = student.get_average_grade()
 print(f"Средний балл: {average_grade}")

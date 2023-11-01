@@ -86,12 +86,13 @@ class Rect:
         return f"Rect({self._l}, {self._w})"
 
 
-x1 = Rect(3, 2)
-x2 = Rect(3, 2)
-print(x1)
-print(x2)
-x2._w = -2
-print(x2)
+# x1 = Rect(3, 2)
+# x2 = Rect(3, 2)
+# print(x1.per())
+# print(x1)
+# print(x2)
+# x2._w = -2
+# print(x2)
 # # изменяем параметр прямоугольника - ширину
 # x2.w = 5
 # # печатаем обновленный прямоугольника
