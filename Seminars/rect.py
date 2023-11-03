@@ -52,6 +52,7 @@ class Rect:
 
 x1 = Rect(3, 2)
 x2 = Rect(3, 2)
+print(d=x1.width)
 print(x1)
 print(x2)
 print(x1.per(), x1.sq())

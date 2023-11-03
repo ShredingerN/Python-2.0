@@ -1,7 +1,7 @@
 # Создайте класс с базовым исключением и дочерние классы-исключения: ошибка уровня, ошибка доступа.
 
 
-class MyExcept(Exception):
+class MyExcept(ValueError):
     pass
 
 
