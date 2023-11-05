@@ -1,0 +1,11 @@
+ERROR, 2023-11-05 16:20:00,020, Invalid number: -200.0. Number should be a positive integer or float.
+INFO, 2023-11-05 16:20:00,020, Created Archive with text: 987==, number: -200.0
+INFO, 2023-11-05 16:27:43,824, Created Archive with text: привет, number: 200.0
+ERROR, 2023-11-05 16:32:43,731, Invalid number: -200.0. Number should be a positive integer or float.
+INFO, 2023-11-05 16:32:43,732, Created Archive with text: 987==, number: -200.0
+ERROR, 2023-11-05 16:32:51,446, Invalid number: 0.0. Number should be a positive integer or float.
+INFO, 2023-11-05 16:32:51,446, Created Archive with text: 987==, number: 0.0
+ERROR, 2023-11-05 16:33:12,367, Invalid number: 0.0. Number should be a positive integer or float.
+INFO, 2023-11-05 16:33:12,368, Created Archive with text: 98, number: 0.0
+ERROR, 2023-11-05 16:34:04,366, Invalid number: 0.0. Number should be a positive integer or float.
+INFO, 2023-11-05 16:34:04,366, Created Archive with text: 98, number: 0.0
